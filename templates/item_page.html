@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item</title>
+</head>
+<body>
+
+<header>
+
+    <ul>
+        <li><a href="/"> Home </a></li>
+        <li><a href="/items"> Items </a></li>
+        <li><a href="/about"> About</a></li>
+    </ul>
+
+
+</header>
+
+    <h2>Item name: {{item.name}}</h2>
+    {% if item.quantity == 0 %}
+        Количество: товар отсутствует
+    {% else %}
+        Количество: {{item.quantity}}
+    {% endif %}
+
+    <p><a href="/items">Вернуться к списку товаров</a></p>
+
+
+    
+</body>
+</html>

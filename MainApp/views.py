@@ -2,13 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseNotFound
 
 
-author = {
-    "name": "Евген",
-    "mid_name" : "Борисович",
-    "last_name": "Шершнев",
-    "phone": "8-923-666-03-66",
-    "email": "Eugen@mail.ru"
-    }
+# author = {
+#     "name": "Евген",
+#     "mid_name" : "Борисович",
+#     "last_name": "Шершнев",
+#     "phone": "8-923-666-03-66",
+#     "email": "Eugen@mail.ru"
+#     }
 
 items = [
    {"id": 1, "name": "Кроссовки abibas", "quantity" : 5},
@@ -39,15 +39,23 @@ def about(request):
     return render(request,"about.html", {"author": author})
 
 def get_item(request,item_id):
-    for item in items:
-        if item['id'] == item_id:
-            res = f"""
-            <h2>имя: {item["name"]} </h2>
-            <p> количество: {item["quantity"]}</p>
-            <p> <a href="/items"> Вернуться к списку товаров </a> </p>
-            """
-            return HttpResponse(res)
-    return HttpResponseNotFound(f"Item with id={item_id} not found!")    
+    #вариант без генератора
+    # for item in items:
+    #     if item['id'] == item_id:
+    #             context={"item": item}
+    #     else:
+    #          continue  
+    #     return render(request,"item_page.html", context)    
+    # return HttpResponseNotFound(f"Item with id={item_id} not found!")    
+
+    item = next((item for item in items if item['id'] == item_id), None)
+    if item is not None:
+        context = {
+            "item": item
+        }
+        return render(request,"item_page.html", context)    
+    return HttpResponseNotFound(f"Item with id={item_id} not found!")
+
 
 def get_items(request):
     context={
