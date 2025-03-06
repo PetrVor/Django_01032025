@@ -3,10 +3,10 @@ from django.http import HttpResponse,HttpResponseNotFound
 
 
 author = {
-    "Имя": "Евген",
-    "Отчество" : "Борисович",
-    "Фамилия": "Шершнев",
-    "телефон": "8-923-666-03-66",
+    "name": "Евген",
+    "mid_name" : "Борисович",
+    "last_name": "Шершнев",
+    "phone": "8-923-666-03-66",
     "email": "Eugen@mail.ru"
     }
 
@@ -28,14 +28,15 @@ def home(request):
     return render(request,"index.html", context)
 
 def about(request):
-    text=f"""
-    "Имя": <b>{author['Имя']}</b><br>
-    "Отчество" : "<b>{author['Отчество']}</b><br>
-    "Фамилия": <b>{author['Фамилия']}</b><br>
-    "телефон": <b>{author['телефон']}</b><br>
-    "email": <b>{author['email']}</b><br>
-    """
-    return HttpResponse(text)
+    author={
+    "name": "Евген",
+    "mid_name" : "Борисович",
+    "last_name": "Шершнев",
+    "phone": "8-923-666-03-66",
+    "email": "Eugen@mail.ru"
+    }
+    
+    return render(request,"about.html", {"author": author})
 
 def get_item(request,item_id):
     for item in items:
