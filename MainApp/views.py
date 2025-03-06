@@ -20,13 +20,12 @@ items = [
 
 
 def home(request):
-    # text =""" 
-    # <h1>"Изучаем django"</h1>
-    # <strong>Автор</strong>: <i>Воробьев П.С.</i>
-    # """
-    # return HttpResponse(text)
+    context={
+        'name': "дядя Евген",
+        'mail': 'Jeka@gmail.com'
+    }
 
-    return render(request,"index.html")
+    return render(request,"index.html", context)
 
 def about(request):
     text=f"""
@@ -54,4 +53,4 @@ def get_items(request):
     for item in items:
         res += f""" <li><a href="/item/{item['id']}"> {item['name']} </li>"""
     res += "</ol>"
-    return HttpResponse(res)    
+    return HttpResponse(res)  
