@@ -22,7 +22,7 @@ items = [
 def home(request):
     context={
         'name': "дядя Евген",
-        'mail': 'Jeka@gmail.com'
+        'email': 'Jeka@gmail.com'
     }
 
     return render(request,"index.html", context)
