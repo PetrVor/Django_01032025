@@ -49,8 +49,7 @@ def get_item(request,item_id):
     return HttpResponseNotFound(f"Item with id={item_id} not found!")    
 
 def get_items(request):
-    res = "<h1>  список товаров </h1><ol>"
-    for item in items:
-        res += f""" <li><a href="/item/{item['id']}"> {item['name']} </li>"""
-    res += "</ol>"
-    return HttpResponse(res)  
+    context={
+        "items": items
+    } 
+    return render(request,"items_list.html", context)
