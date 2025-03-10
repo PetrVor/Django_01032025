@@ -19,10 +19,10 @@
 </header>
 
     <h2>Item name: {{item.name}}</h2>
-    {% if item.quantity == 0 %}
+    {% if item.count == 0 %}
         Количество: товар отсутствует
     {% else %}
-        Количество: {{item.quantity}}
+        Количество: {{item.count}}
     {% endif %}
 
     <p><a href="/items">Вернуться к списку товаров</a></p>
