@@ -12,10 +12,23 @@
 
 5. 'python manage.py runserver'
 
-##Запуск ipython  в контексте приложения 'django'
-
+## Запуск ipython  в контексте приложения 'django'
+'''
 python manage.py shell_plus --ipython
+'''
 
+## Выгрузки и загрузка данных из БД
+
+### Выгрузить данные из БД.
+'''
+pythone manage.py dumpdata MainApp --ident 4 > ./fixtures/items.json
+'''
+
+### Загрузить данные в БД.
+
+'''
+pythone manage.py loaddata ./fixtures/items.json
+'''
 
 ## дополнительно
 1.Полезное дополнения для шаблонов Django.
