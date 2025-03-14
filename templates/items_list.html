@@ -1,62 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Items list</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        .item{
-            width: 150pt;
-            height: 100;
-            margin: 10px;
-            box-shadow: 1px 2px 4px rgba(0,0,0,0.1);
-            border-radius: 4px;
-            padding-top: 10px;
-            background: rgba(223,241,244,0.625);
-        }
-        .item:hover{
-            background rgb(207,232,237);
-            box-shadow: 4px 8px 16px rgb(71,215,240);
-        }
-        .item p{
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-        .item_name{
-            font-size: 1.5em;
-            text-align: center;
-        }
-        .item a{
-            text-decoration: none;
-            color: black;
-            text-align: justify;
-        }
-        .items{
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, 200px);
-            max-width: 1200px;
-            justify-content: center;
-            justify-items: center;
-            column-gap: 30px;
-            row-gap: 40px;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <header>
-        <ul>
-            <li><a href="/"> Home </a></li>
-            <li><a href="/items"> Items </a></li>
-            <li><a href="/about"> About</a></li>
-        </ul>
-    
-     </header>
+{% load static %}
+
+{% block title %}  Items list {% endblock title %}
+
+{% block style %}
+    {{block.super}}
+
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+{% endblock  %}
+
+{% block content %}
+        {{block.super}}
+
     <h2>Список товаров</h2>
     <div class="items">
         {% for item in items %}
@@ -70,5 +26,5 @@
             {% endfor %}
       
     </div>
-</body>
-</html>
+
+{% endblock  %}
