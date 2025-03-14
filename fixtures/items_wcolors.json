@@ -1,0 +1,74 @@
+[
+{
+    "model": "MainApp.color",
+    "pk": 3,
+    "fields": {
+        "name": "red"
+    }
+},
+{
+    "model": "MainApp.color",
+    "pk": 4,
+    "fields": {
+        "name": "green"
+    }
+},
+{
+    "model": "MainApp.color",
+    "pk": 5,
+    "fields": {
+        "name": "blue"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 1,
+    "fields": {
+        "name": "Кроссовки",
+        "brand": "abibas",
+        "count": 10,
+        "description": "Base item description",
+        "colors": [
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 2,
+    "fields": {
+        "name": "Coca-cola bottle",
+        "brand": "Coca-cola",
+        "count": 5,
+        "description": "Base item description",
+        "colors": [
+            3
+        ]
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 3,
+    "fields": {
+        "name": "Кепка",
+        "brand": "D&G",
+        "count": 10,
+        "description": "Base item description",
+        "colors": [
+            5
+        ]
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 4,
+    "fields": {
+        "name": "Картошка фри",
+        "brand": "Вкусно",
+        "count": 0,
+        "description": "Base item description",
+        "colors": []
+    }
+}
+]
