@@ -1,42 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=About, initial-scale=1.0">
-    <title>About</title>
-    <style>
-        p { display: inline-flex;
-            padding: 5px;
-            background-color: green;
-            color: white
-            
-        }
+{% extends "base.html" %}
 
+{% block title %}
+    About
+{% endblock title %}
 
-    </style>
-</head>
-<body>
-    <header>
-        <ul>
-            <li><a href="/"> Home </a></li>
-            <li><a href="/items"> Items </a></li>
-            <li><a href="/about"> About</a></li>
-        </ul>
-    
-     </header>
+{% block content %}
+    {{block.super}}
+    <h2>Author page</h2>
 
-    <div>
-        <p>
-            Name: {{author.name}} <br>
-            middle_name: {{author.mid_name}} <br>
-            last_name: {{author.last_name}} <br>
-            Phone: {{author.phone}} <br>
-            Email: {{author.email}} <br>
+    <b> Name: {{author.name}}</b> <br>
+    <b>middle_name: {{author.mid_name}}</b> <br>
+    <b>last_name: {{author.last_name}}</b> <br>
+    <b>Phone: {{author.phone}}</b> <br>
+    <b>Email: {{author.email}}</b> <br>
 
-        </p>
-
-
-    </div>
-    
-</body>
-</html>
+{% endblock content %}

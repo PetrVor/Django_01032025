@@ -1,8 +1,16 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}
     Item page
 {% endblock title %}
+
+{% block style %}
+    {{block.super}}
+
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+{% endblock  %}
 
 {% block content %}
 
@@ -15,6 +23,16 @@
     <div>
         Описание: {{item.description}}
     </div>
+    <i>Цвета:</i>
+    {% if colors %}
+    <ul class='ul_no_mark'>    
+        {% for color in colors %}
+            <li><div class='div_color' style='background-color: {{ color.name }};'></div>&nbsp;&nbsp; {{color.name}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        Данных по цветам нет
+    {% endif %}
     <br><br>
     <p><a href="{% url "items-list" %}" >Вернуться к списку товаров</a></p>
 

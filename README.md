@@ -18,10 +18,14 @@ python manage.py shell_plus --ipython
 '''
 
 ## Выгрузки и загрузка данных из БД
-
-### Выгрузить данные из БД.
+### Выгрузить данные из БД для приложения MainApp(все классы)
 '''
 pythone manage.py dumpdata MainApp --ident 4 > ./fixtures/items.json
+'''
+### Выгрузить данные из БД для приложения MainApp, только item модель(один класс)
+'''
+python manage.py dumpdata MainApp.item --indent 4 > ./fixtures/only_items.json
+
 '''
 
 ### Загрузить данные в БД.

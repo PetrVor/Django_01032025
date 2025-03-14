@@ -38,3 +38,20 @@
     row-gap: 40px;
     margin: 0 auto;
 }
+
+
+.container{
+    display:flex;
+}
+
+.ul_no_mark {
+    list-style-type: none;
+}
+
+.div_color {
+    border: 1px solid black;
+    width: 10px;
+    height: 10px;
+    margin-top: 3px;
+    float: left;
+}

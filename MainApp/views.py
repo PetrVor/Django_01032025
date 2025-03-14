@@ -26,10 +26,16 @@ def about(request):
 def get_item(request,item_id: int):
     try:
         item = Item.objects.get(id =item_id)
+        colors = []
+        # Check if element has at least one color
+        if item.colors.exists():
+            colors = item.colors.all()
     except ObjectDoesNotExist:
         return HttpResponseNotFound(f"Item with id={item_id} not found!")
     else:
-        context = {"item": item}
+        context = {"item": item,
+                   "colors": colors,
+                   }
         return render(request,"item_page.html", context)    
     
 
